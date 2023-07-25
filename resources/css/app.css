@@ -1,0 +1,10 @@
+
+/* カスタムCSS */
+.bg-colorful {
+    background-color: #FF5733; /* カラフルな背景色を指定 */
+}
+
+.btn-colorful {
+    background-color: #FFC300; /* カラフルなボタンの背景色を指定 */
+    color: #FFFFFF; /* ボタンのテキスト色を白に指定 */
+}
