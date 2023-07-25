@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Folder;
 use App\Models\Todo; // モデル名を "Todo" に修正
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; // 追加：Authファサードを利用するためのuse文
 use App\Http\Requests\CreateTask;
 
 class TaskController extends Controller
@@ -42,17 +43,13 @@ class TaskController extends Controller
     {
         $current_folder = Folder::find($id);
 
-        $task = new Todo(); // Todo モデルを利用する場合、Task を Todo に変更する
+        $task = new Todo();
         $task->title = $request->title;
         $task->due_date = $request->due_date;
 
-        $current_folder->todos()->save($task); // tasks() を todos() に変更する
-
-        return redirect()->route('tasks.index', [
-            'id' => $current_folder->id,
-        ]);
+        $current_folder->todos()->save($task);
+        return redirect()->route('tasks.index', ['folder' => $current_folder->id]);
     }
-
     public function showEditForm(int $id, int $task_id)
     {
         // 1

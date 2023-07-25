@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateTaskRequest extends FormRequest
+class CreateTask extends FormRequest
 {
     /**
      * リクエストを実行するユーザーが許可されているか判定します。

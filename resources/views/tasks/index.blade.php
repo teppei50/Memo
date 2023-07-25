@@ -13,9 +13,9 @@
         </div>
         <div class="list-group">
           @foreach($folders as $folder)
-            <a href="{{ route('tasks.index', ['id' => $folder->id]) }}" class="list-group-item block px-4 py-3 text-gray-800 hover:bg-gray-100">
-              {{ $folder->title }}
-            </a>
+          <a href="{{ route('tasks.index', ['folder' => $folder->id]) }}" class="list-group-item block px-4 py-3 text-gray-800 hover:bg-gray-100">
+             {{ $folder->title }}
+          </a>
           @endforeach
         </div>
       </nav>
